@@ -1,0 +1,26 @@
+﻿@page "/fetchdata"
+
+<h1>@title</h1>
+@code{
+    private string title = "Đăng Nhập";
+    private string name;
+    private string password;
+    private string greeting;
+    private void Login()
+    {
+        if(!string.IsNullOrEmpty(name)&&!string.IsNullOrEmpty(password))
+        {
+            greeting = $"Đăng Nhập {name} {password} Thành Công.Chào Mừng Bạn Đã Đến Với HTSTORE";
+        }
+    }
+}
+<div class="form-group">
+    <input type="text" placeholder="Nhập Tài Khoản"@bind="name"class="form-control"/>
+</div>
+<div class="form-group">
+    <input type="password" placeholder="Nhập Mật Khẩu"@bind="password"class="form-control"/>
+</div>
+<div class="form-group">
+    <button @onclick="Login" class="btn btn-primary">Đăng Nhập!</button>
+</div>
+<h3>@greeting</h3>
